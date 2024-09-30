@@ -1,7 +1,13 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
-  }
+	"compilerOptions": {
+		"paths": {
+			"@*": ["./*"]
+		},
+		"target": "ES6",
+		"module": "ESNext",
+		"jsx": "react",
+		"moduleResolution": "node"
+	},
+	"include": ["**/*.js", "**/*.jsx"],
+	"exclude": ["node_modules"]
 }
