@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 
 import PromptCard from './PromptCard'
 
-const PromptCardList = ({ data, handleTagClick, test }) => {
+const PromptCardList = ({ data, handleTagClick }) => {
 	return (
 		<div className="mt-16 prompt_layout">
 			{data.map((post) => (
@@ -73,8 +73,8 @@ const Feed = () => {
 				<input
 					type="text"
 					placeholder="Search for a tag or a username"
-					value={searchText}
-					onChange={handleSearchChange}
+					// value={searchText}
+					// onChange={handleSearchChange}
 					required
 					className="search_input peer"
 				/>
@@ -82,7 +82,7 @@ const Feed = () => {
 			{/* {searchText ? (
 				<PromptCardList data={searchResults} handleTagClick={handleTagClick} />
 			) : ( */}
-			<PromptCardList data={posts} handleTagClick={handleTagClick} />
+			<PromptCardList data={posts} handleTagClick={() => { }} />
 			{/* )} */}
 		</section>
 	)
