@@ -17,11 +17,11 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 		setTimeout(() => setCopied(''), 3000)
 	}
 
-	const handleViewUserProfile = () => {
-		router.push(
-			`/profile/${post.creator._id}?name=${post.creator.username}`
-		)
-	}
+	// const handleViewUserProfile = () => {
+	// 	router.push(
+	// 		`/profile/${post.creator._id}?name=${post.creator.username}`
+	// 	)
+	// }
 
 	return (
 		<div className="prompt_card">
@@ -37,7 +37,7 @@ const PromptCard = ({ post, handleTagClick, handleEdit, handleDelete }) => {
 
 					<div className="flex flex-col">
 						<h3
-							onClick={handleViewUserProfile}
+							// onClick={handleViewUserProfile}
 							className="font-satoshi font-semibold text-gray-900"
 						>
 							{post.creator.username}

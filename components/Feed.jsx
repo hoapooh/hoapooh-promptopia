@@ -19,9 +19,9 @@ const PromptCardList = ({ data, handleTagClick, test }) => {
 }
 
 const Feed = () => {
-	const [searchText, setSearchText] = useState('')
-	const [searchTimeout, setSearchTimeout] = useState(null)
-	const [searchResults, setSearchResults] = useState([])
+	// const [searchText, setSearchText] = useState('')
+	// const [searchTimeout, setSearchTimeout] = useState(null)
+	// const [searchResults, setSearchResults] = useState([])
 
 	const [posts, setPosts] = useState([])
 
@@ -36,36 +36,36 @@ const Feed = () => {
 		fetchPosts()
 	}, [])
 
-	const filterPrompts = (searchText) => {
-		const regex = new RegExp(searchText, 'i') // 'i' flag for case-insensitive search
-		return posts.filter(
-			(post) =>
-				regex.test(post.creator.username) ||
-				regex.test(post.tag) ||
-				regex.test(post.prompt)
-		)
-	}
+	// const filterPrompts = (searchText) => {
+	// 	const regex = new RegExp(searchText, 'i') // 'i' flag for case-insensitive search
+	// 	return posts.filter(
+	// 		(post) =>
+	// 			regex.test(post.creator.username) ||
+	// 			regex.test(post.tag) ||
+	// 			regex.test(post.prompt)
+	// 	)
+	// }
 
-	const handleSearchChange = (e) => {
-		clearTimeout(searchTimeout) // Clear any existing timeout
+	// const handleSearchChange = (e) => {
+	// 	clearTimeout(searchTimeout) // Clear any existing timeout
 
-		setSearchText(e.target.value) // Update the search text state
+	// 	setSearchText(e.target.value) // Update the search text state
 
-		// Set a new timeout to debounce the search operation
-		setSearchTimeout(
-			setTimeout(() => {
-				const searchResult = filterPrompts(e.target.value) // Filter posts based on search text
-				setSearchResults(searchResult) // Update the search results state
-			}, 500) // Wait for 500ms before executing the search
-		)
-	}
+	// 	// Set a new timeout to debounce the search operation
+	// 	setSearchTimeout(
+	// 		setTimeout(() => {
+	// 			const searchResult = filterPrompts(e.target.value) // Filter posts based on search text
+	// 			setSearchResults(searchResult) // Update the search results state
+	// 		}, 500) // Wait for 500ms before executing the search
+	// 	)
+	// }
 
-	const handleTagClick = (tagName) => {
-		setSearchText(tagName)
+	// const handleTagClick = (tagName) => {
+	// 	setSearchText(tagName)
 
-		const searchResult = filterPrompts(tagName)
-		setSearchResults(searchResult)
-	}
+	// 	const searchResult = filterPrompts(tagName)
+	// 	setSearchResults(searchResult)
+	// }
 
 	return (
 		<section className="feed">
@@ -79,11 +79,11 @@ const Feed = () => {
 					className="search_input peer"
 				/>
 			</form>
-			{searchText ? (
+			{/* {searchText ? (
 				<PromptCardList data={searchResults} handleTagClick={handleTagClick} />
-			) : (
-				<PromptCardList data={posts} handleTagClick={handleTagClick} />
-			)}
+			) : ( */}
+			<PromptCardList data={posts} handleTagClick={handleTagClick} />
+			{/* )} */}
 		</section>
 	)
 }
